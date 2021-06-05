@@ -6,9 +6,12 @@ class YoutubeUrlFormatter
   YOUTUBE_ID_REGEX = %r{\A(?:http(?:s)?://)?(?:www\.)?(?:m\.)?(?:youtu\.be/|youtube\.com/(?:(?:watch)?\?(?:.*&)?v(?:i)?=|(?:embed|v|vi|user)/))([^?&"'>]+)(&t=.*)?\z}
 
   def self.format(url)
+    # Youtube の埋め込み用 iframe である場合は src 属性の URL に置き換える
     src_match = SRC_REGEX.match(url)
     url = src_match[1] if src_match
 
+    # Youtube の動画である場合は 埋め込み用 URL を戻り値とする
+    # それ以外の場合は nil を返す
     youtube_id_match = YOUTUBE_ID_REGEX.match(url)
     if youtube_id_match
       "https://www.youtube.com/embed/#{youtube_id_match[1]}"
