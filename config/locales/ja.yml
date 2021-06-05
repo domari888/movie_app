@@ -1,10 +1,11 @@
 ja:
   activerecord:
-    models: 動画
-  attributes:
-    movie:
-      title: タイトル
-      url: URL
+    models:
+      movie: 動画
+    attributes:
+      movie:
+        title: タイトル
+        url: URL
   attributes:
     id: ID
     namespace: 名前空間
@@ -13,4 +14,4 @@ ja:
     author_type: 著者タイプ
     author_id: 著者ID
     created_at: 作成日時
-    update_at: 更新日時
+    updated_at: 更新日時
