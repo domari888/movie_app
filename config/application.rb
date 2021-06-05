@@ -26,6 +26,9 @@ module MovieApp
     config.i18n.default_locale = :ja
     config.time_zone = 'Asia/Tokyo'
 
+    # lib/autoloads ディレクトリ配下のファイルを読み込む
+    config.autoload_paths << Rails.root.join("lib/autoloads")
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
